@@ -268,9 +268,7 @@ prédictions du modèle $(y(x))$ et les vraies étiquettes ($t$).
     perte de $1$ lorsqu’il y a une prédiction incorrecte
     $(y(x) \neq t)$.
 
-    ```math
-    L_{0-1}(y(x), t) = \begin{cases} 0 & \text{si } y(x) = t \\ 1 & \text{si } y(x) \neq t \end{cases}
-    ```
+    $$L_{0-1}(y(x), t) = \begin{cases} 0 & \text{si } y(x) = t \\ 1 & \text{si } y(x) \neq t \end{cases}$$
 
 2.  **Perte binaire asymétrique :** Cette perte est utilisée lorsqu’il y
     a un déséquilibre entre les classes. Elle attribue des poids
@@ -292,7 +290,7 @@ prédictions du modèle $(y(x))$ et les vraies étiquettes ($t$).
     absolue entre la prédiction et la vraie étiquette, ignorant la
     direction de l’erreur.
 
-    L_{\text{absolute}}(y(x), t) = |t - y(x)|$$
+    $$L_{\text{absolute}}(y(x), t) = |t - y(x)|$$
 
 ## 2.7. Évaluation du modèle
 
