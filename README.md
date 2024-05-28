@@ -119,25 +119,35 @@ les étiquettes de classe dans un contexte binaire.
 - Étiquettes de Classe : $\mathbf{t}$ (valeurs de -1 ou 1 pour une
   classification binaire).
 - La fonction de perte devient :
-  $$ L(\mathbf{w}, \mathbf{b}) = \frac{1}{2N} \left \| \mathbf{t} - \mathbf{X}\mathbf{w} - \mathbf{b} \right \|^2 $$
+
+```math
+L(\mathbf{w}, \mathbf{b}) = \frac{1}{2N} \left \| \mathbf{t} - \mathbf{X}\mathbf{w} - \mathbf{b} \right \|^2
+```
 
 ### 2.2.1. Composante Biais et Matrice Augmentée
 
 Pour incorporer le biais, on ajoute une colonne de uns à gauche de
 $\mathbf{X}$, créant une matrice augmentée $\tilde{\mathbf{X}}$ de
-dimensions $N \times (D+1)$. $$ \tilde{\mathbf{X}} = \begin{bmatrix}
+dimensions $N \times (D+1)$. 
+
+```math
+ \tilde{\mathbf{X}} = \begin{bmatrix}
 1 & x_{1}^T \\
 1 & x_{2}^T \\
 \vdots & \vdots \\
 1 & x_{N}^T \\
-\end{bmatrix} $$
+\end{bmatrix}
+```
 
 ### 2.2.3. Calcul des Poids Optimaux
 
 En minimisant la fonction de perte par rapport à $\mathbf{w}$ et
 $\mathbf{b}$, on dérive une solution analytique pour les poids optimaux
 $\tilde{\mathbf{w}}$ :
-$$ \tilde{\mathbf{w}} = (\tilde{\mathbf{X}}^T \tilde{\mathbf{X}})^{-1} \tilde{\mathbf{X}}^T \mathbf{t} $$
+
+```math
+\tilde{\mathbf{w}} = (\tilde{\mathbf{X}}^T \tilde{\mathbf{X}})^{-1} \tilde{\mathbf{X}}^T \mathbf{t}
+```
 
 Cette solution est obtenue à l’aide de la pseudo-inverse pour résoudre
 le système linéaire et fournit les poids optimaux pour la classification
@@ -151,8 +161,9 @@ peut l’adapter pour gérer des problèmes multi-classes.
 ### 2.3.1 Modèle pour plusieurs classes
 
 Pour chaque classe $C_k$, un modèle linéaire distinct est utilisé :
-$$ y_k(\mathbf{x}) = \mathbf{w}_k^T \mathbf{x} + w_{k0} $$
-
+```math
+ y_k(\mathbf{x}) = \mathbf{w}_k^T \mathbf{x} + w_{k0}
+```
 - $k = 1, \dots, K$ représente les différentes classes.
 - $\mathbf{w}_k$ est un vecteur de poids pour la classe $k$ avec une
   dimension égale à celle des caractéristiques plus le biais.
@@ -161,7 +172,9 @@ $$ y_k(\mathbf{x}) = \mathbf{w}_k^T \mathbf{x} + w_{k0} $$
 ### 2.3.2 Vecteur de sortie pour toutes les classes
 
 Regroupons ces modèles en utilisant une notation vectorielle :
-$$ \mathbf{y}(\mathbf{x}) = \mathbf{W}^T \mathbf{x} $$
+```math
+ \mathbf{y}(\mathbf{x}) = \mathbf{W}^T \mathbf{x}
+```
 
 - $\mathbf{W}$ est une matrice de taille $(D+1) \times K$ où chaque
   colonne représente les poids pour une classe spécifique.
@@ -175,7 +188,9 @@ $\{ \mathbf{x}_n, \mathbf{t}_n \}$ où $n = 1, \dots, N$ et
 $\mathbf{t}_n$ est le vecteur cible pour la $n$-ème observation, la
 fonction de perte peut être définie comme suit :
 
-$$ L(\mathbf{W}) = \frac{1}{2N} \| \mathbf{T} - \mathbf{X}\mathbf{W} \|^2 $$
+```math
+L(\mathbf{W}) = \frac{1}{2N} \| \mathbf{T} - \mathbf{X}\mathbf{W} \|^2
+```
 
 - $\mathbf{T}$ est une matrice de dimensions $N \times K$ contenant les
   vecteurs cibles pour chaque exemple d’entraînement.
@@ -188,7 +203,9 @@ $$ L(\mathbf{W}) = \frac{1}{2N} \| \mathbf{T} - \mathbf{X}\mathbf{W} \|^2 $$
 Pour obtenir les poids optimaux $\mathbf{W}$, on minimise la fonction de
 perte par rapport à $\mathbf{W}$. La solution est donnée par :
 
-$$ \mathbf{W} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{T} $$
+```math
+\mathbf{W} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{T}
+```
 
 ## 2.4. Seuil de Décision
 
@@ -198,10 +215,12 @@ Pour convertir les prédictions continues en une prédiction binaire, un
 seuil de décision est choisi. Si la prédiction $\hat{y}(\mathbf{x})$
 dépasse ce seuil, on classe l’observation dans la catégorie positive
 ($1$) ; sinon, elle est classée dans la catégorie négative ($0$). Cela
-peut être exprimé comme : $$
+peut être exprimé comme : 
+
+```math
 \hat{t}(x) = \begin{cases} 1 & \text{si } \hat{y}(x) > seuil \\ 
 0 & \text{sinon} \end{cases}
-$$
+```
 
 ### 2.4.2. Classification multi-classe :
 
@@ -215,9 +234,9 @@ sont calculées à l’aide des modèles correspondants. La classe prédite
 pour l’observation $\mathbf{x}$ est celle ayant la prédiction la plus
 élevée. Cela peut être formulé comme :
 
-$$
+```math
 \hat{t}(x) = \underset{k}{\arg \max} \;  \hat{y}_{k}(x)
-$$
+```
 
 où $\hat{y}_k(x)$ représente la prédiction pour la classe $k$.
 
@@ -249,7 +268,9 @@ prédictions du modèle $(y(x))$ et les vraies étiquettes ($t$).
     perte de $1$ lorsqu’il y a une prédiction incorrecte
     $(y(x) \neq t)$.
 
-    $$ L_{0-1}(y(x), t) = \begin{cases} 0 & \text{si } y(x) = t \\ 1 & \text{si } y(x) \neq t \end{cases} $$
+    ```math
+    L_{0-1}(y(x), t) = \begin{cases} 0 & \text{si } y(x) = t \\ 1 & \text{si } y(x) \neq t \end{cases}
+    ```
 
 2.  **Perte binaire asymétrique :** Cette perte est utilisée lorsqu’il y
     a un déséquilibre entre les classes. Elle attribue des poids
@@ -258,20 +279,26 @@ prédictions du modèle $(y(x))$ et les vraies étiquettes ($t$).
     $y(x) = 0$ et $t = 1$, la perte est $\beta$. Pour une prédiction
     correcte $(y(x) = t)$, la perte est nulle.
 
-    $$ L_{ABL}(y(x), t) = \begin{cases} \alpha & \text{si } y(x) = 1 \land t = 0 \\ \beta & \text{si } y(x) = 0 \land t = 1 \\ 0 & \text{si } y(x) = t \end{cases} $$
+    ```math
+    L_{ABL}(y(x), t) = \begin{cases} \alpha & \text{si } y(x) = 1 \land t = 0 \\ \beta & \text{si } y(x) = 0 \land t = 1 \\ 0 & \text{si } y(x) = t \end{cases}
+    ```
 
 3.  **Perte quadratique :** Cette fonction mesure la perte en prenant le
     carré de la différence entre la prédiction et la vraie étiquette.
     Elle est souvent utilisée dans la régression et attribue une
     pénalité plus importante aux erreurs importantes.
 
-    $$ L_{\text{squared}}(y(x), t) = (t - y(x))^2 $$
+    ```math
+    L_{\text{squared}}(y(x), t) = (t - y(x))^2
+    ```
 
 4.  **Erreur absolue :** Cette perte mesure simplement la différence
     absolue entre la prédiction et la vraie étiquette, ignorant la
     direction de l’erreur.
 
-    $$ L_{\text{absolute}}(y(x), t) = |t - y(x)| $$
+    ```math
+    L_{\text{absolute}}(y(x), t) = |t - y(x)|
+    ```
 
 ## 2.7. Évaluation du modèle
 
@@ -282,12 +309,12 @@ classification binaire) ou $K \times K$ (pour une classification
 multi-classe) où $K$ est le nombre de classes. Pour une classification
 binaire, elle est représentée comme suit :
 
-$$
+```math
 \text{Matrice de Confusion} = \begin{bmatrix}
 VP & FP \\
 FN & VN \\
 \end{bmatrix}
-$$
+```
 
 ### 2.7.2. Précision et Rappel
 
@@ -298,8 +325,16 @@ correctement tous les éléments positifs par rapport à l’ensemble des
 éléments positifs réels.
 
 La précision et le rappel sont calculés comme suit :
-$$ \text{Précision} = \frac{VP}{VP + FP} = \frac{VP}{\text{toutes les prédiction}} $$
-$$ \text{Rappel} = \frac{VP}{VP + FN} $$ où :  
+
+```math
+\text{Précision} = \frac{VP}{VP + FP} = \frac{VP}{\text{toutes les prédiction}}
+```
+```math
+\text{Rappel} = \frac{VP}{VP + FN}
+```
+
+
+où :  
 - VP : Vrais Positifs  
 - FP : Faux Positifs  
 - FN : Faux Négatifs
@@ -316,8 +351,14 @@ classification.
 ### 2.7.3. Courbe ROC
 
 La courbe ROC est tracée en utilisant le Taux de Vrais Positifs (TPR) et
-le Taux de Faux Positifs (FPR) : $$ \text{TPR} = \frac{VP}{VP + FN} $$
-$$ \text{FPR} = \frac{FP}{FP + VN} $$
+le Taux de Faux Positifs (FPR) : 
+```math
+\text{TPR} = \frac{VP}{VP + FN}
+```
+
+```math
+\text{FPR} = \frac{FP}{FP + VN}
+```
 
 ### 2.7.4. Cross-Validation
 
