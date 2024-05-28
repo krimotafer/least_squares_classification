@@ -1,6 +1,9 @@
 Classification des Moindres Carrés (Least- Squares Classification)
 ================
-Abdelkrim Tafer
+
+[Jupyter notebook](https://github.com/krimotafer/least_squares_classification/blob/main/Least_Squares_Classification.ipynb)
+
+
 
 # 1. Introduction
 
