@@ -106,7 +106,10 @@ $\mathbf{y} = \mathbf{X} \mathbf{w} + \mathbf{b}$, où :
 
 La fonction de perte pour la régression linéaire est la somme des
 moindres carrés (ou somme des erreurs quadratiques) :
-$$ L(\mathbf{w}, \mathbf{b}) = \frac{1}{2N} \left \| \mathbf{y} - \mathbf{X}\mathbf{w} - \mathbf{b} \right \|^2 $$
+
+```math
+L(\mathbf{w}, \mathbf{b}) = \frac{1}{2N} \left \| \mathbf{y} - \mathbf{X}\mathbf{w} - \mathbf{b} \right \|^2
+```
 
 ## 2.2. Adaptation à la Classification par les Moindres Carrés
 
