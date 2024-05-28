@@ -356,3 +356,4 @@ extrêmes ou atypiques présentes dans les données d’apprentissage.
   Raquel Urtasun and Sanja Fidler, University of Toronto
 - **Derivation of Least Squares Regressor and Classifier**, Diego
   Unzueta
+- [**notesonai**](https://notesonai.com/least+squares+for+classification)
