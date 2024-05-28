@@ -279,26 +279,20 @@ prédictions du modèle $(y(x))$ et les vraies étiquettes ($t$).
     $y(x) = 0$ et $t = 1$, la perte est $\beta$. Pour une prédiction
     correcte $(y(x) = t)$, la perte est nulle.
 
-    ```math
-    L_{ABL}(y(x), t) = \begin{cases} \alpha & \text{si } y(x) = 1 \land t = 0 \\ \beta & \text{si } y(x) = 0 \land t = 1 \\ 0 & \text{si } y(x) = t \end{cases}
-    ```
+    $$L_{ABL}(y(x), t) = \begin{cases} \alpha & \text{si } y(x) = 1 \land t = 0 \\ \beta & \text{si } y(x) = 0 \land t = 1 \\ 0 & \text{si } y(x) = t \end{cases}$$
 
 3.  **Perte quadratique :** Cette fonction mesure la perte en prenant le
     carré de la différence entre la prédiction et la vraie étiquette.
     Elle est souvent utilisée dans la régression et attribue une
     pénalité plus importante aux erreurs importantes.
 
-    ```math
-    L_{\text{squared}}(y(x), t) = (t - y(x))^2
-    ```
+    $$L_{\text{squared}}(y(x), t) = (t - y(x))^2$$
 
 4.  **Erreur absolue :** Cette perte mesure simplement la différence
     absolue entre la prédiction et la vraie étiquette, ignorant la
     direction de l’erreur.
 
-    ```math
-    L_{\text{absolute}}(y(x), t) = |t - y(x)|
-    ```
+    L_{\text{absolute}}(y(x), t) = |t - y(x)|$$
 
 ## 2.7. Évaluation du modèle
 
