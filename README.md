@@ -1,7 +1,7 @@
 Classification des Moindres Carrés (Least- Squares Classification)
 ================
 
-[Jupyter notebook](https://github.com/krimotafer/least_squares_classification/blob/main/Least_Squares_Classification.ipynb)
+[Jupyter notebook](https://github.com/krimotafer/least_squares_classification/blob/main/Least_Squares_Classification.ipynb)  
 [Kaggle](https://www.kaggle.com/code/abdelkrimtafer/least-squares-classification)
 
 
