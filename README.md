@@ -5,7 +5,7 @@ Classification des Moindres Carrés (Least- Squares Classification)
 
 
 
-# 1. Introduction
+# 1 Introduction
 
 La classification consiste à déterminer à quelle catégorie appartient
 une observation parmi un ensemble de catégories prédéfinies. Ce
@@ -58,7 +58,7 @@ Nous allons nous intéresser plus particulièrement à la méthode de
 classification des moindres carrés (ou Least-Squares Classification en
 anglais).
 
-# 2. Classification des Moindres Carrés (Least-Squares Classification)
+# 2 Classification des Moindres Carrés (Least-Squares Classification)
 
 Dans la classification des moindres carrés, on s’intéresse à
 l’utilisation de méthodes de régression pour résoudre des problèmes de
@@ -88,7 +88,7 @@ Classification 2D et 3D.
 
 </div>
 
-## 2.1. Régression Linéaire
+## 2.1 Régression Linéaire
 
 La régression linéaire est utilisée pour estimer une variable cible $y$
 à partir de variables prédictives $x$ à l’aide d’un modèle linéaire.
@@ -111,7 +111,7 @@ moindres carrés (ou somme des erreurs quadratiques) :
 L(\mathbf{w}, \mathbf{b}) = \frac{1}{2N} \left \| \mathbf{y} - \mathbf{X}\mathbf{w} - \mathbf{b} \right \|^2
 ```
 
-## 2.2. Adaptation à la Classification par les Moindres Carrés
+## 2.2 Adaptation à la Classification par les Moindres Carrés
 
 Dans la classification, on utilise la régression linéaire pour estimer
 les étiquettes de classe dans un contexte binaire.
@@ -124,7 +124,7 @@ les étiquettes de classe dans un contexte binaire.
 L(\mathbf{w}, \mathbf{b}) = \frac{1}{2N} \left \| \mathbf{t} - \mathbf{X}\mathbf{w} - \mathbf{b} \right \|^2
 ```
 
-### 2.2.1. Composante Biais et Matrice Augmentée
+### 2.2.1 Composante Biais et Matrice Augmentée
 
 Pour incorporer le biais, on ajoute une colonne de uns à gauche de
 $\mathbf{X}$, créant une matrice augmentée $\tilde{\mathbf{X}}$ de
@@ -139,7 +139,7 @@ dimensions $N \times (D+1)$.
 \end{bmatrix}
 ```
 
-### 2.2.3. Calcul des Poids Optimaux
+### 2.2.3 Calcul des Poids Optimaux
 
 En minimisant la fonction de perte par rapport à $\mathbf{w}$ et
 $\mathbf{b}$, on dérive une solution analytique pour les poids optimaux
@@ -153,7 +153,7 @@ Cette solution est obtenue à l’aide de la pseudo-inverse pour résoudre
 le système linéaire et fournit les poids optimaux pour la classification
 des moindres carrés dans un contexte binaire.
 
-## 2.3. Classification des Moindres Carrés pour plusieurs classes
+## 2.3 Classification des Moindres Carrés pour plusieurs classes
 
 En utilisant la méthode des moindres carrés pour la classification, on
 peut l’adapter pour gérer des problèmes multi-classes.
@@ -181,7 +181,7 @@ Regroupons ces modèles en utilisant une notation vectorielle :
 - $\mathbf{x}$ est le vecteur d’entrée augmenté avec une composante pour
   le biais.
 
-### 2.3.3. Fonction de Perte
+### 2.3.3 Fonction de Perte
 
 En utilisant un ensemble de données d’entraînement
 $\{ \mathbf{x}_n, \mathbf{t}_n \}$ où $n = 1, \dots, N$ et
@@ -198,7 +198,7 @@ L(\mathbf{W}) = \frac{1}{2N} \| \mathbf{T} - \mathbf{X}\mathbf{W} \|^2
   représentant les caractéristiques d’entrée augmentées pour chaque
   exemple.
 
-### 2.3.4.Calcul des Poids Optimaux
+### 2.3.4 Calcul des Poids Optimaux
 
 Pour obtenir les poids optimaux $\mathbf{W}$, on minimise la fonction de
 perte par rapport à $\mathbf{W}$. La solution est donnée par :
@@ -207,9 +207,9 @@ perte par rapport à $\mathbf{W}$. La solution est donnée par :
 \mathbf{W} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{T}
 ```
 
-## 2.4. Seuil de Décision
+## 2.4 Seuil de Décision
 
-### 2.4.1. Classification Binaire
+### 2.4.1 Classification Binaire
 
 Pour convertir les prédictions continues en une prédiction binaire, un
 seuil de décision est choisi. Si la prédiction $\hat{y}(\mathbf{x})$
@@ -222,7 +222,7 @@ peut être exprimé comme :
 0 & \text{sinon} \end{cases}
 ```
 
-### 2.4.2. Classification multi-classe :
+### 2.4.2 Classification multi-classe :
 
 Pour la classification multi-classe, chaque classe possède son propre
 modèle. La décision est prise en comparant les prédictions de chaque
@@ -240,7 +240,7 @@ pour l’observation $\mathbf{x}$ est celle ayant la prédiction la plus
 
 où $\hat{y}_k(x)$ représente la prédiction pour la classe $k$.
 
-## 2.5. Classification Non Binaire
+## 2.5 Classification Non Binaire
 
 À partir de la section 2.3, on comprend que la méthode de classification
 des moindres carrés peut être étendue pour traiter des problèmes de
@@ -254,7 +254,7 @@ de la classification des moindres carrés.
 - **OvO (One-vs-One)** : $\frac{K(K-1)}{2}$ modèles binaires sont
   entraînés pour chaque paire de classes.
 
-## 2.6. Fonction de perte
+## 2.6 Fonction de perte
 
 On peut appliquer différente fonctions de perte dans des contextes
 différents selon la manière dont on veut évaluer et pénaliser les
@@ -267,34 +267,36 @@ prédictions du modèle $(y(x))$ et les vraies étiquettes ($t$).
     perte de 0 lorsque la prédiction est correcte $(y(x) = t)$ et une
     perte de $1$ lorsqu’il y a une prédiction incorrecte
     $(y(x) \neq t)$.
+```math
+    L_{0-1}(y(x), t) = \begin{cases} 0 & \text{si } y(x) = t \\ 1 & \text{si } y(x) \neq t \end{cases}
+```
 
-    $$L_{0-1}(y(x), t) = \begin{cases} 0 & \text{si } y(x) = t \\ 1 & \text{si } y(x) \neq t \end{cases}$$
-
-2.  **Perte binaire asymétrique :** Cette perte est utilisée lorsqu’il y
+1.  **Perte binaire asymétrique :** Cette perte est utilisée lorsqu’il y
     a un déséquilibre entre les classes. Elle attribue des poids
     différents aux erreurs en fonction de la prédiction et de la vraie
     étiquette. Si $y(x) = 1$ et $t = 0$, la perte est $\alpha$. Si
     $y(x) = 0$ et $t = 1$, la perte est $\beta$. Pour une prédiction
     correcte $(y(x) = t)$, la perte est nulle.
+```math
+    L_{ABL}(y(x), t) = \begin{cases} \alpha & \text{si } y(x) = 1 \land t = 0 \\ \beta & \text{si } y(x) = 0 \land t = 1 \\ 0 & \text{si } y(x) = t \end{cases}
+```
 
-    $$L_{ABL}(y(x), t) = \begin{cases} \alpha & \text{si } y(x) = 1 \land t = 0 \\ \beta & \text{si } y(x) = 0 \land t = 1 \\ 0 & \text{si } y(x) = t \end{cases}$$
-
-3.  **Perte quadratique :** Cette fonction mesure la perte en prenant le
+2.  **Perte quadratique :** Cette fonction mesure la perte en prenant le
     carré de la différence entre la prédiction et la vraie étiquette.
     Elle est souvent utilisée dans la régression et attribue une
     pénalité plus importante aux erreurs importantes.
 
     $$L_{\text{squared}}(y(x), t) = (t - y(x))^2$$
 
-4.  **Erreur absolue :** Cette perte mesure simplement la différence
+3.  **Erreur absolue :** Cette perte mesure simplement la différence
     absolue entre la prédiction et la vraie étiquette, ignorant la
     direction de l’erreur.
 
     $$L_{\text{absolute}}(y(x), t) = |t - y(x)|$$
 
-## 2.7. Évaluation du modèle
+## 2.7 Évaluation du modèle
 
-### 2.7.1. Matrice de Confusion
+### 2.7.1 Matrice de Confusion
 
 La matrice de confusion est une matrice $2 \times 2$ (pour une
 classification binaire) ou $K \times K$ (pour une classification
@@ -308,7 +310,7 @@ FN & VN \\
 \end{bmatrix}
 ```
 
-### 2.7.2. Précision et Rappel
+### 2.7.2 Précision et Rappel
 
 La précision en classification mesure l’exactitude des prédictions
 positives du modèle par rapport à l’ensemble des prédictions positives,
@@ -340,7 +342,7 @@ indique à la fois une précision élevée et un rappel élevé, ce qui est
 bénéfique pour évaluer les performances globales d’un modèle de
 classification.
 
-### 2.7.3. Courbe ROC
+### 2.7.3 Courbe ROC
 
 La courbe ROC est tracée en utilisant le Taux de Vrais Positifs (TPR) et
 le Taux de Faux Positifs (FPR) : 
@@ -352,14 +354,14 @@ le Taux de Faux Positifs (FPR) :
 \text{FPR} = \frac{FP}{FP + VN}
 ```
 
-### 2.7.4. Cross-Validation
+### 2.7.4 Cross-Validation
 
 La validation croisée est une technique pour évaluer la performance d’un
 modèle en utilisant des sous-ensembles différents des données
 disponibles. Cela permet d’estimer la capacité du modèle à généraliser
 de nouvelles données.
 
-## 2.8. Limitations
+## 2.8 Limitations
 
 La linéarité de la méthode des moindres carrés limite sa capacité à
 capturer des relations non linéaires entre les caractéristiques et les
