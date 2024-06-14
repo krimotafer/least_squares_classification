@@ -3,7 +3,9 @@ Classification des Moindres Carrés (Least- Squares Classification)
 
 <a target="_blank" href="https://colab.research.google.com/github/krimotafer/least_squares_classification/blob/main/Least_Squares_Classification.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>  [Kaggle](https://www.kaggle.com/code/abdelkrimtafer/least-squares-classification)
+</a>  
+
+[Kaggle](https://www.kaggle.com/code/abdelkrimtafer/least-squares-classification)
 
 
 # 1 Introduction
